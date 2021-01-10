@@ -18,7 +18,7 @@
 
 1. 虚拟机安装Ubuntu16
 
-创建虚拟机：
+   创建虚拟机：
 
 ![image-20210110115331709](C:\Users\14272\AppData\Roaming\Typora\typora-user-images\image-20210110115331709.png)
 
@@ -34,7 +34,47 @@
 
 ![image-20210110115601695](C:\Users\14272\AppData\Roaming\Typora\typora-user-images\image-20210110115601695.png)
 
+2. 使用桥接网络
 
+   ![image-20210110120524779](C:\Users\14272\AppData\Roaming\Typora\typora-user-images\image-20210110120524779.png)
+
+   
+
+3. ifconfig查看ip
+
+   没有net-tools，无法使用ifconfig
+
+   ![image-20210110120554557](C:\Users\14272\AppData\Roaming\Typora\typora-user-images\image-20210110120554557.png)
+
+   guest主机ip为192.168.5.220
+
+   ![image-20210110120623527](C:\Users\14272\AppData\Roaming\Typora\typora-user-images\image-20210110120623527.png)
+
+   Host主机ip为192.168.5.135
+
+   ![image-20210110120643186](C:\Users\14272\AppData\Roaming\Typora\typora-user-images\image-20210110120643186.png)
+
+   
+
+4. 互ping测试
+
+   互ping可通：
+
+   guest ping host:
+
+   ![image-20210110120727578](C:\Users\14272\AppData\Roaming\Typora\typora-user-images\image-20210110120727578.png)
+
+   Host ping guest
+
+   ![image-20210110120747388](C:\Users\14272\AppData\Roaming\Typora\typora-user-images\image-20210110120747388.png)
+
+   
+
+5. 安装http服务
+
+6. 通过浏览器测试
+
+   
 
 
 
