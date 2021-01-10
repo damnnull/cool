@@ -72,7 +72,25 @@
 
 5. 安装http服务
 
+   安装http服务：
+
+   ![image-20210110121446663](C:\Users\14272\AppData\Roaming\Typora\typora-user-images\image-20210110121446663.png)
+
+   curl命令测试正常：
+
+   ![image-20210110121508923](C:\Users\14272\AppData\Roaming\Typora\typora-user-images\image-20210110121508923.png)
+
+   
+
 6. 通过浏览器测试
+
+   浏览器打开正常
+
+   ![image-20210110121527034](C:\Users\14272\AppData\Roaming\Typora\typora-user-images\image-20210110121527034.png)
+
+   从host主机的浏览器打开正常
+
+   ![image-20210110121611784](C:\Users\14272\AppData\Roaming\Typora\typora-user-images\image-20210110121611784.png)
 
    
 
