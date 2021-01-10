@@ -29,3 +29,10 @@ def upload_file(request):
 
 
 
+def download_file(request):
+    FileName = request.GET.get("name")
+    file = open("download/" + FileName, 'rb')
+    response = StreamingHttpResponse(file)
+    response['Content-Type'] = 'application/octet-stream'
+    response['Content-Disposition'] = 'attachment;filename=%s' % FileName
+    return response
