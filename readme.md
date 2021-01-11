@@ -84,17 +84,17 @@
 
 6. 通过浏览器测试
 
-   浏览器打开正常
+   浏览器打开正常:
 
    ![image-20210110121527034](C:\Users\14272\AppData\Roaming\Typora\typora-user-images\image-20210110121527034.png)
 
-   从host主机的浏览器打开正常
+   从host主机的浏览器打开正常:
 
    ![image-20210110121611784](C:\Users\14272\AppData\Roaming\Typora\typora-user-images\image-20210110121611784.png)
 
    
 
-
+  
 
 ## 作业二
 
