@@ -105,6 +105,56 @@
 - 1、关系型数据库设计和ORM、推荐使用Django；
 
 - 2、用户系统；Django框架直接有不用开发。
+
 - 3、前端Hash值计算、可以找开源的工具；
+
 - 4、Web端文件上传和下载。
 
+  
+
+### 关键代码
+
+#### 定义模型类
+
+class File(models.Model):
+    id = models.AutoField(primary_key=True)
+    name = models.CharField(max_length=100)
+    fileHash = models.CharField(max_length=100)
+    download = models.CharField(max_length=100)
+    time = models.DateField()
+
+    def __str__(self):
+        return self.name
+#### 上传文件
+
+def upload_file(request):
+    if request.method == 'POST':
+        file = request.FILES['file']
+        hash = request.POST.get("hash")
+        filePath = "download/" + file.name
+        file_db = File.objects.filter(Q(fileHash__icontains=hash))
+        if len(file_db) > 0:
+            file_new = File(name=file.name, fileHash=file_db[0].fileHash, download="/download/?name=" + file.name,
+                            time=datetime.now())
+            file_new.save()
+            return JsonResponse({"code": 200, "msg": "秒传成功!", "file": file_new.download}, safe=False)
+        else:
+            file_new = File(name=file.name, fileHash=hash, download="/download/?name=" + file.name,
+                            time=datetime.now())
+            file_new.save()
+            with open(filePath, 'wb+') as destination:
+                for chunk in file.chunks():
+                    destination.write(chunk)
+            return JsonResponse({"code": 200, "msg": "上传成功!", "file": file_new.download}, safe=False)
+    else:
+        return render(request, 'upload.html')
+
+#### 下载文件
+
+def download_file(request):
+    FileName = request.GET.get("name")
+    file = open("download/" + FileName, 'rb')
+    response = StreamingHttpResponse(file)
+    response['Content-Type'] = 'application/octet-stream'
+    response['Content-Disposition'] = 'attachment;filename=%s' % FileName
+    return response
